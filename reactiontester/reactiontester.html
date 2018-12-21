@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Reaction Tester</title>
+        
+        <link rel="stylesheet" type="text/css" href="reactiontesterstyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        
+        <div id="header">
+            <h1>Reaction Tester</h1>
+        </div>
+        
+        <div id="legendText">
+            <p>Click on the circles as fast as you can !</p>
+        </div>
+        
+        
+        <div id="scorediv"> 
+        <p id="timeText" class="notHere">Click to start</p>
+        
+        <p id="highScore" class="notHere">Click to start</p>
+            
+        </div>
+        
+        <div id ="clickable">
+        
+        </div>
+        
+        <div id="bottomText">
+            <p>Website by Guillaume Brizolier</p>
+        </div>
+        
+        <script type ="text/javascript">
+            
+            var start = new Date().getTime();
+            var best=9999;
+            
+            
+            
+            function randomizeShape () {
+                
+                var topPosition = Math.floor(Math.random()*45 +1);
+                var leftPosition = Math.floor(Math.random()*85 +1);
+                var colorArray = new Array();
+                var size = Math.floor(Math.random()*170 + 51);
+                
+                document.getElementById("clickable").style.top = topPosition+"%";
+                document.getElementById("clickable").style.left = leftPosition+"%";
+                document.getElementById("clickable").style.width = size+"px";
+                document.getElementById("clickable").style.height = size+"px";
+                $("#clickable").fadeIn("fast");
+                
+                
+                start = new Date().getTime();
+                
+                
+            }
+            
+            function delayedFunction () {
+                
+                setTimeout(randomizeShape, Math.random()*2000);
+            }
+            
+            delayedFunction();
+            
+            $("#clickable").unbind().click(function() {
+                
+                var end = new Date().getTime();
+                var time = ((end-start)/1000).toFixed(2);
+                document.getElementById("timeText").innerHTML = "Your time : " + "<span style='color:#7C4DFF; font-weight:700;'>" + time + "</span>" + " seconds";
+                
+                if(best>time){
+                    
+                    best=time;
+                     document.getElementById("highScore").innerHTML = "Best : <span style='color:#7C4DFF; font-weight:700;'>" + best + "</span>" + " seconds";
+                }
+                
+                 $("#clickable").hide();
+                delayedFunction();
+               
+            });
+            
+            $(".notHere").click(function () {
+                
+                $(this).html("The circle, dummy !");
+            });
+            
+            
+            
+        </script>
+    </body>
+</html>

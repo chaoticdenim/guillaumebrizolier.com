@@ -1,0 +1,138 @@
+<html>
+
+    <head>
+        <title>Code Player</title>
+        <link rel="stylesheet" type ="text/css" href="codeplayerstyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,900" rel="stylesheet">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+    </head>
+    
+    <body>
+        <div id="navbar">
+            <div id="logo">
+                <p>CodePlayer</p>
+            </div>
+            <ul id="selectors">
+                <li id ="html" class="hvr-fade">HTML</li>
+                <li id = "css" class="hvr-fade">CSS</li>
+                <li id="js" class="hvr-fade">Javascript</li>
+                <li id="output" class="hvr-fade">Output</li>
+            </ul>
+
+
+        </div>
+        
+        <div id="block-wrapper">
+        
+            <textarea id="htmlblock" class="textblock"><p id="hello">Hello World</p></textarea>
+
+            <textarea id="cssblock" class="textblock">p {font-size:2em; letter-spacing: 10px; font-weight:bolder;}}</textarea>
+
+            <textarea id="jsblock" class="textblock">document.getElementById('hello').style.color ="cyan";</textarea>
+
+            <iframe id="outputblock" class="textblock">
+                
+            </iframe>
+        </div>
+        
+        <script>
+            
+            var htmlState = 1;
+            var cssState = 1;
+            var javascriptState = 1;
+            var outputState = 1;
+            
+            $(".hvr-fade").click(function() {
+                
+                var idClicked = event.target.id;
+                
+                if(idClicked=="html")
+                    {
+                        if(htmlState==1)
+                            {
+                                htmlState=0;
+                                $(this).css({"background-color":"transparent", "color":"black"});
+                                $("#htmlblock").css("display", "none");
+                            }
+                        else
+                            {
+                                htmlState=1;
+                                $(this).css({"background-color":"black", "color":"white"});
+                                $("#htmlblock").css("display","block");
+                            }
+                    }
+                if(idClicked=="css")
+                    {
+                        if(cssState==1)
+                            {
+                                cssState=0;
+                                $(this).css({"background-color":"transparent", "color":"black"});
+                                $("#cssblock").css("display", "none");
+                            }
+                        else
+                            {
+                                cssState=1;
+                                $(this).css({"background-color":"black", "color":"white"});
+                                $("#cssblock").css("display","block");
+                            }
+                    }
+                if(idClicked=="js")
+                    {
+                        if(javascriptState==1)
+                            {
+                                javascriptState=0;
+                                $(this).css({"background-color":"transparent", "color":"black"});
+                                $("#jsblock").css("display", "none");
+                            }
+                        else
+                            {
+                                javascriptState=1;
+                                $(this).css({"background-color":"black", "color":"white"});
+                                $("#jsblock").css("display","block");
+                            }
+                    }
+                if(idClicked=="output")
+                    {
+                        if(outputState==1)
+                            {
+                                outputState=0;
+                                $(this).css({"background-color":"transparent", "color":"black"});
+                                $("#outputblock").css("display", "none");
+                            }
+                        else
+                            {
+                                outputState=1;
+                                $(this).css({"background-color":"black", "color":"white"});
+                                $("#outputblock").css("display","block");
+                            }
+                    }
+                
+                
+                
+              
+            });
+            
+            update();
+            
+            $(".textblock").on('input', function() {
+               
+                console.log("input happened");
+                update();
+                
+            });
+            
+            function update() {
+                
+                console.log("update called");
+                $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + $("#cssblock").val() + "</style></head><body>" + $("#htmlblock").val() + "</body></html>");
+                
+                document.getElementById("outputblock").contentWindow.eval($("#jsblock").val());
+            }
+            
+        </script>
+        
+    </body>
+
+</html>

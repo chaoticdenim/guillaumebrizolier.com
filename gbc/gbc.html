@@ -1,0 +1,806 @@
+<html>
+    
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <title>
+            Technology - GBC News
+        </title>
+        
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+            }
+            
+            body {
+                display: flex;
+            }
+            #top_panel {
+                position:absolute;
+                height:19%;
+                width:100%;
+                margin:0 auto;
+            }
+            
+            #white_part{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                height:30%;
+                font-family: Arial;
+                font-weight: bold;
+                font-size: 0.8em;
+            }
+            
+            #red_part{
+                display: flex;
+                background-color:#BB1919;
+                color: white;
+                font-size: 2.8em;
+                padding-left: 18.9%;
+                height:44%;
+                font-family: Helvetica;
+                align-items: center;
+            }
+            #redder_part {
+                display: flex;
+                background-color:#A91717;
+                position:relative;
+                height:25%;
+                padding-left: 18.3%;
+                align-items:center;
+                font-family: Helvetica;
+                color:white;
+            }
+            
+            #logo {
+                position: relative;
+                float:left;
+                width:auto;
+                height: 100%;
+            }
+            
+            .gbc {
+                display: flex;
+                position: relative;
+                float:left;
+                margin:0px 2px 0px 2px;
+                padding: 0px 4px 0px 4px;
+                background-color:black;
+                height: 70%;
+                width:40%;
+                color:white;
+                align-items: center;
+                justify-content: center;
+                font-size: 2em;
+            }
+            
+            #profile{
+                position:relative;
+                float:left;
+                height:100%;
+                padding-right:6%;
+                white-space: nowrap;
+                
+            }
+            
+            #profileimg {
+                display: block;
+                position:relative;
+                height: 80%;
+    
+            }
+            
+            #more {
+                padding-right: 80px;
+            }
+            
+            .textlink {
+                border-right: 1px #CCCCCC solid;
+                position:relative;
+                float:left;
+                height:100%;
+                padding: 0 8px 0 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #searchbar {
+                border: none;
+            }
+            #searchbartext {
+                background-color:#E4E4E4;
+                border:none;
+                height:60%;
+                padding:6px;
+                font-family: Arial;
+                font-weight: bold;
+            }
+            ::placeholder{
+                color: black;
+            }
+            #searchbartext:focus{
+                color:black;
+                outline: none;
+            }
+            #searchbartext:focus::placeholder {
+                color:gray;
+            }
+            #searchbutton{
+                outline: none;
+                border:none;
+                background-color:#E4E4E4;
+                height:60%;
+                padding:1%;
+                width:30px;
+            }
+            #searchicon {
+                max-width:90%;
+                max-height:90%;
+            }
+            
+            .category {
+                display: flex;
+                height:90%;
+                align-items: center;
+                justify-content: center;
+            }
+            #tech {
+                border-bottom: 7px white solid;
+                position:relative;
+                top:3px;
+                
+            }
+            .category:hover{
+                border-bottom: 7px white solid;
+                position:relative;
+                top:3px;
+            }
+            .categorytext
+            {
+                display: flex;
+                padding:0 12px 0 12px;
+                align-items: center;
+                justify-content: center;
+                border-right: 0.2px #BB4545 solid;
+            }
+            
+            #mainpage {
+                display:flex;
+                justify-content: center;
+                width:100%;
+                
+            }
+            
+            #content {
+                position:relative;
+                top:18.8%;
+                width:40%;
+            }            
+          
+            #mainarticle {
+                align-items: center;
+                justify-content: center;
+                width:100%;
+                height:50%;
+            }
+            
+             #titles {
+                float:left;
+                height:35%;
+                min-width:100%;
+                font-family: Helvetica;
+            }
+            
+            #legend {
+                top:5%;
+                float:left;
+                clear:left;
+                position:relative;
+                min-width:40%;
+                width:40%;
+                height:60%;
+            }
+            #pic {
+                top:5%;
+                display:flex;
+                justify-content: flex-end;
+                position:relative;
+                min-width:60%;
+                height:60%;
+            }
+            
+            #technology{
+                position: relative;
+                float:left;
+                height:20%;
+                font-size: 1.4em;
+                margin-bottom: 8%;
+                margin-top:2%;
+                border-bottom: 4px #BB1919 solid;
+            }
+          
+            .legendtext {
+                font-family: Helvetica;
+                color:#7D7C71;
+                max-height:40%;
+                overflow:hidden;
+                font-size: 0.9em;
+            }
+            
+            #dateinfo{
+                display:flexbox;
+                margin: 7px 0 0 0;
+            }
+            
+            #timeicon{
+                margin-left: 3%;
+                display:inline-block;
+                height:13px;
+            }
+            
+            #datetext {
+                display:inline-block;
+                font-family: Helvetica;
+                color:#7D7C71;
+                font-size: 0.8em;
+            }
+            
+            #categorylink {
+                display:inline-block;
+                font-family: Helvetica;
+                font-size: 0.8em;
+                color:#A91717;
+                border-left: 1px #e0e0e0 solid;
+                padding-left:5px;
+            }
+            
+            #links {
+                padding: 15 0;
+                width:92%;
+                height:38%;
+                color:darkslategrey;
+            }
+            #innerpic {
+                padding:15px;
+            }
+            
+            #articletitle{
+                position: relative;
+                float:left;
+                clear:left;
+                font-size: 2.3em;
+                font-weight: bold;
+                height:35%;
+            }
+            #articles {
+                display:flex;
+                align-items: center;
+                justify-content: flex-start;
+                width:100%;
+                height:60%;
+            }
+            
+            .subarticle {
+                width:35%;
+                height:100%;
+                border-right: 1px lightgray solid;
+                margin:0 3% 0 0;
+                padding: 0 2% 0 0;
+            }
+            
+            #smallerarticles {
+                width:30%;
+                height:100%;
+                margin-right:2%;
+            }
+            .smallerdiv {
+                width:100%;
+                height:26%;
+                margin:0 0 4% 0;
+                border-bottom: 1px lightgray solid;
+            }
+            
+            .smallerdivtext{
+                width:100%;
+                color:black;
+                
+            }
+            .realtext {
+                padding:3%;
+                font-family: Helvetica;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            
+            .smallerdate {
+                display:flexbox;
+                width:100%;
+                font-family: Helvetica;
+                color:#7D7C71;
+            }
+            
+            .subpic {
+                width:100%;
+            }
+            
+            .subpiclegend {
+                max-width:100%;
+                font-family: Helvetica;
+                font-weight: bold;
+                font-size: 1.4em;
+                padding: 3% 0;
+            }
+            
+              #sidepannel {
+                display:flex;
+                flex-direction: column;
+                position: relative;
+                top:25%;
+                width:22%;
+
+                font-family: Helvetica;
+            }
+            
+            #advertisement{
+                position: relative;
+                color:#505050;
+                text-align: center;
+                font-weight: bold;
+                font-size: 0.8em;
+                margin-bottom: 10%;
+            }
+            
+            #vidlist {
+                width:100%;
+                height:100%;
+                border-left:1px lightgray solid;
+                padding-left:17px;
+            }
+            
+            #sidepanneltitle {
+                color:#404040;
+                font-size: 1.6em;
+                padding-left:3%;
+            }
+            .videoelement {
+                display:flex;
+                width:100%;
+                height:12%;
+                margin-bottom: 5%;
+            }
+            
+            .video {
+                flex:1.5;
+            }
+            
+            .videocontent {
+                flex:2;
+            }
+            .videotitle {
+                font-weight: bold;
+                margin-left:5%;
+            }
+            
+            ul {
+                  list-style-type: none;
+            }
+
+            
+        </style>
+    </head>
+    
+    <body>
+        <div id ="top_panel">
+            <div id="white_part">
+                <a href="gbc.html">
+                    <div id="logo" class="textlink">
+                    
+                    <div class="gbc">
+                    G
+                    </div>
+                    <div class="gbc">
+                    B
+                    </div>
+                    
+                    <div class="gbc">
+                    C
+                    </div>
+                </div>
+                    
+                </a>
+                <div id="profile" class="textlink">
+                    
+                    <img src="profile.PNG" id="profileimg">
+                    <p>Sign in</p>
+                </div>
+                <div class="textlink">
+                    <p>News</p>
+                </div>
+                <div class="textlink">
+                    <p> Sport</p>
+                </div>
+                <div id="weather" class="textlink">
+                    <p>Weather</p>
+                </div>
+                <div class="textlink">
+                    <p>Shop</p>
+                </div>
+                <div class="textlink">
+                    <p>Earth</p>
+                </div>
+                <div class="textlink">
+                    <p>Travel</p>
+                </div>
+                <div id ="more" class="textlink">
+                    <p>More</p>
+                </div>
+                <div id="searchbar" class="textlink">
+                        <input type="text" id="searchbartext" placeholder="Search">
+                    <button type="submit" id="searchbutton"><img src="searchicon.png" id="searchicon"></button>
+
+                </div>
+            </div>
+            <div id="red_part">
+                <p>NEWS<p>
+            </div>
+            <div id="redder_part">
+                <div class="category">
+                    <div class="categorytext">
+                            <p>Home</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>Video</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>World</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>UK</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>Business</p>
+                    </div>
+                </div>
+                <div class="category" id="tech">
+                    <div class="categorytext">
+                            <p>Tech</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>Science</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>Stories</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>Entertainment &amp; Art</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>Health</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>You found me!</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categorytext">
+                            <p>More</p>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div id="mainpage">
+            <div id="content">
+                <div id="mainarticle">
+                    <div id="titles">
+                        <div id="technology">
+                        <p>Technology</p>
+                        </div>
+                        <div id="articletitle">
+                        <p>Shocking but interesting title</p>
+                        </div>
+                    </div>
+                    <div id="legend">
+                        <div class="legendtext">
+                        <p>"The best debugging method is writing 'hello world' everywhere in the page", says Guillaume Brizolier.</p>
+                        </div>
+                        <div id="dateinfo">
+                            <div id="timeicon">
+                                <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                            </div>
+                            
+                            <div id="datetext">
+                                <p>8 May 2018</p>
+                            </div>
+                            
+                            <div id="categorylink">
+                                <p>Technology</p>
+                            </div>
+                        </div>
+                        
+                        <div id="links">
+                        <p>Watch this dog master node.js in 3.5 seconds</p>
+                        <p>12 reasons to stop reading this</p>
+                        </div>
+                    </div>
+                    <div id="pic">
+                        <div id="innerpic">
+                        <img src="helloworld.jpg" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div id="articles">
+                    <div class="subarticle">
+                        <div class="subpic">
+                            <img src="pigs.jpg" style="max-width: 100%">
+                        </div>
+                        <div class="subpiclegend">
+                            <p>Flying pigs seen above London</p>
+                        </div>
+                        <div class="legendtext">
+                            <p>Astonished londoners are out in the streets photographing the bizarre phenomenon.</p>
+                        </div>
+                        <div id="timeicon">
+                                <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                        </div>
+                            
+                        <div id="datetext">
+                                <p>10 min. ago</p>
+                        </div>
+                            
+                        <div id="categorylink">
+                                <p>Technology</p>
+                        </div>
+                    </div>
+                    <div class="subarticle">
+                        <div class="subpic">
+                            <img src="apple.jpg" style="max-width: 100%">
+                        </div>
+                        <div class="subpiclegend">
+                            <p>Apple rated best fruit company</p>
+                        </div>
+                        <div class="legendtext">
+                            <p>Worldstar fruit magazine "FruitsInTech" gave the company a 10/10.</p>
+                        </div>
+                        <div id="timeicon">
+                                <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                        </div>
+                            
+                        <div id="datetext">
+                                <p>6 May 2018</p>
+                        </div>
+                            
+                        <div id="categorylink">
+                                <p>Technology</p>
+                        </div>
+                    </div>
+                    <div id ="smallerarticles">
+                        <div class="smallerdiv">
+                            <div class="smallerdivtext">
+                                <div class="realtext">
+                                    <p>Florida man moved to LA</p>
+                                </div>
+                                <div class="smallerdate">
+                                    <div id="timeicon">
+                                        <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+                                    <div id="datetext">
+                                        <p>2 hours ago</p>
+                                    </div>
+                            
+                                    <div id="categorylink">
+                                        <p>Stories</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="smallerdiv">
+                             <div class="smallerdivtext">
+                                <div class="realtext">
+                                    <p>Student learns HTML and becomes billionaire</p>
+                                </div>
+                            </div>
+                            <div class="smallerdate">
+                                 <div id="timeicon">
+                                        <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+                                    <div id="datetext">
+                                        <p>4 hours ago</p>
+                                    </div>
+                            
+                                    <div id="categorylink">
+                                        <p>Business</p>
+                                    </div>
+                            </div> 
+                        </div>
+                         <div class="smallerdiv">
+                             <div class="smallerdivtext">
+                                <div class="realtext">
+                                    <p>Thanks for reading</p>
+                                </div>
+                            </div>
+                            <div class="smallerdate">
+                                 <div id="timeicon">
+                                        <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+                                    <div id="datetext">
+                                        <p>2 hours ago</p>
+                                    </div>
+                            
+                                    <div id="categorylink">
+                                        <p>Stories</p>
+                                    </div>
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div id="sidepannel">
+                <div id="advertisement">
+                    <p>ADVERTISEMENT</p>
+                </div>
+                <div id="vidlist">
+                    <div id="sidepanneltitle">
+                        <p>Watch/Listen</p>
+                    </div>
+                    
+                    <ul>
+                        <li>
+                            <div class="videoelement">
+                                 <div class="video">
+                                    <iframe src="https://www.youtube.com/embed/Z6cSiP93nos" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="max-height: 100%; max-width: 100%;"></iframe>
+                                </div>
+                                
+                                <div class="videocontent">
+                                    <div class="videotitle">
+                                        <p>Understand binary in 0011 simple steps</p>
+                                    </div>
+                                    
+                                    <div id="timeicon">
+                                    <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+
+                                    <div id="datetext">
+                                            <p>10 min. ago</p>
+                                    </div>
+
+                                    <div id="categorylink">
+                                            <p>Technology</p>
+                                    </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="videoelement">
+                                 <div class="video">
+                                    <iframe src="https://www.youtube.com/embed/dfR_LdA3fPI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="max-height: 100%; max-width: 100%;"></iframe>
+                                </div>
+                                
+                                <div class="videocontent">
+                                    <div class="videotitle">
+                                        <p>Learn to cook chicken in 7 easy dinners</p>
+                                    </div>
+                                   
+                                    <div id="timeicon">
+                                    <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+
+                                    <div id="datetext">
+                                            <p>1 hour ago</p>
+                                    </div>
+
+                                    <div id="categorylink">
+                                            <p>Health</p>
+                                    </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="videoelement">
+                                 <div class="video">
+                                    <iframe src="https://www.youtube.com/embed/HAnw168huqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="max-height: 100%; max-width: 100%;"></iframe>
+                                </div>
+                                
+                                <div class="videocontent">
+                                    <div class="videotitle">
+                                        <p>Think Fast, Talk Smart: Communication Techniques</p>
+                                    </div>
+                                    
+                                    <div id="timeicon">
+                                    <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+
+                                    <div id="datetext">
+                                            <p>2 hours ago</p>
+                                    </div>
+
+                                    <div id="categorylink">
+                                            <p>Business</p>
+                                    </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="videoelement">
+                                <div class="video">
+                                    <iframe src="https://www.youtube.com/embed/wiRdr5LzbwY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="max-height: 100%; max-width: 100%;"></iframe>
+                                </div>
+                                
+                                <div class="videocontent">
+                                    <div class="videotitle">
+                                        <p>Lava eating a car in Hawai</p>
+                                    </div>
+                                    
+                                    <div id="timeicon">
+                                    <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+
+                                    <div id="datetext">
+                                            <p>5 hours ago</p>
+                                    </div>
+
+                                    <div id="categorylink">
+                                            <p>World</p>
+                                    </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="videoelement">
+                                <div class="video">
+                                    <iframe src="https://www.youtube.com/embed/30KfPtHec4s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="max-height: 100%; max-width: 100%;"></iframe>
+                                </div>
+                                
+                                <div class="videocontent">
+                                    <div class="videotitle">
+                                        <p>Einstein's Theory Of Relativity Made Easy</p>
+                                    </div>
+                                    <div id="timeicon">
+                                    <img src="clock.png" style="max-height: 100%; max-width: 100%;">
+                                    </div>
+
+                                    <div id="datetext">
+                                            <p>3 May 2018</p>
+                                    </div>
+
+                                    <div id="categorylink">
+                                            <p>Science</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="videoelement">
+                                
+                            </div>
+                        </li>
+                    </ul>      
+                    
+                </div>
+            </div>
+        </div>
+        
+    </body>
+    
+</html>
