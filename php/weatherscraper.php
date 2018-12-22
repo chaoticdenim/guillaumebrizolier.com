@@ -1,3 +1,21 @@
+<?php
+
+  if($_GET)
+  {
+    /*$city = $_GET["cityName"];
+    //echo $city;
+    $codesource = file_get_contents("https://www.weather-forecast.com/locations/$city/forecasts/latest");
+    $stringToSearch = "</div></div></div>$city Weather Forecast";
+    $test ="Hello little bitch";
+    $Block = explode($stringToSearch, $codesource);
+    $text = explode("<p class='large-loc'><b>", $Block[1]);*/
+    //echo explode("</p></span></span></div></div>", $text[0])[0];
+
+    //preg_match_all("#")
+  }
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +29,14 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    
+  <form method>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" name="cityName" class="form-control" id="city" placeholder="Where do you wanna check the weather ?">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
