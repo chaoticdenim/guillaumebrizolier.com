@@ -1,21 +1,3 @@
-<?php
-
-  if($_GET)
-  {
-    /*$city = $_GET["cityName"];
-    //echo $city;
-    $codesource = file_get_contents("https://www.weather-forecast.com/locations/$city/forecasts/latest");
-    $stringToSearch = "</div></div></div>$city Weather Forecast";
-    $test ="Hello little bitch";
-    $Block = explode($stringToSearch, $codesource);
-    $text = explode("<p class='large-loc'><b>", $Block[1]);*/
-    //echo explode("</p></span></span></div></div>", $text[0])[0];
-
-    //preg_match_all("#")
-  }
-
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,18 +7,44 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="weatherscraper.css">
     <title>Hello, world!</title>
   </head>
   <body>
     
   <form method>
     <div class="form-group">
-      <label>City</label>
       <input type="text" name="cityName" class="form-control" id="city" placeholder="Where do you wanna check the weather ?">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-dark">Submit</button>
 </form>
+
+<div class ="jumbotron weather-text">
+
+  <?php
+
+  if($_GET)
+  {
+
+    function fixBlankSpaces($cityName) {
+      $cityName = preg_replace("#\s#", "-", $cityName); //replace blank spaces with dashes
+      return $cityName;
+    }
+
+
+    $city = $_GET["cityName"];
+    $city = fixBlankSpaces($city); //fix blank spaces
+
+    $codesource = file_get_contents("https://www.weather-forecast.com/locations/$city/forecasts/latest");
+    preg_match_all("#(<h2>.+ Weather Today </h2>.+</span></p></td></tr><tr class=\"b-forecast__table-days js-forecast-header js-daynames\">)#", $codesource, $result);
+
+    $forecast = $result[1][0]; //h2 titles for weather
+    echo $forecast;
+  }
+
+  ?>
+
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
