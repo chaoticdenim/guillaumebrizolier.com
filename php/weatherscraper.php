@@ -8,44 +8,52 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="weatherscraper.css">
-    <title>Hello, world!</title>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Roboto:300" rel="stylesheet">    <title>Hello, world!</title>
   </head>
   <body>
-    
-  <form method>
-    <div class="form-group">
-      <input type="text" name="cityName" class="form-control" id="city" placeholder="Where do you wanna check the weather ?">
-    </div>
-    <button type="submit" class="btn btn-dark">Submit</button>
-</form>
+        <div class="container" id="main-div">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col">
+              <div class="row justify-content-center" id="title">
+                <h1>Weather Scraper</h1>
+              </div>
+                <form class="row">
+                    <div class="input-group">
+                        <input type="text" name="cityName" class="form-control" id="city" placeholder="Where do you wanna check the weather ?">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+              
+                <div class ="jumbotron weather-text">
+                    <?php
 
-<div class ="jumbotron weather-text">
-
-  <?php
-
-  if($_GET)
-  {
-
-    function fixBlankSpaces($cityName) {
-      $cityName = preg_replace("#\s#", "-", $cityName); //replace blank spaces with dashes
-      return $cityName;
-    }
-
-
-    $city = $_GET["cityName"];
-    $city = fixBlankSpaces($city); //fix blank spaces
-
-    $codesource = file_get_contents("https://www.weather-forecast.com/locations/$city/forecasts/latest");
-    preg_match_all("#(<h2>.+ Weather Today </h2>.+</span></p></td></tr><tr class=\"b-forecast__table-days js-forecast-header js-daynames\">)#", $codesource, $result);
-
-    $forecast = $result[1][0]; //h2 titles for weather
-    echo $forecast;
-  }
-
-  ?>
-
-</div>
-
+                    if($_GET)
+                    {
+                  
+                      function fixBlankSpaces($cityName) {
+                        $cityName = preg_replace("#\s#", "-", $cityName); //replace blank spaces with dashes
+                        return $cityName;
+                      }
+                  
+                  
+                      $city = $_GET["cityName"];
+                      $city = fixBlankSpaces($city); //fix blank spaces
+                  
+                      $codesource = file_get_contents("https://www.weather-forecast.com/locations/$city/forecasts/latest");
+                      preg_match_all("#(<h2>.+ Weather Today </h2>.+</span></p></td></tr><tr class=\"b-forecast__table-days js-forecast-header js-daynames\">)#", $codesource, $result);
+                  
+                      $forecast = $result[1][0]; //h2 titles for weather
+                      echo $forecast;
+                    }
+                  
+                    ?>
+                </div>
+            </div>
+          </div>
+        </div>
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
