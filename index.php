@@ -11,16 +11,20 @@
         
         if(filter_var($emailFrom, FILTER_VALIDATE_EMAIL))
         {
-            echo "good email";
-            mail("gbrizolier@gmail.com", $subject, $message, $headers );
+            if(mail("gbrizolier@gmail.com", $subject, $message, $headers ))
+            {
+
+               $log = "Email sent by $emailFrom with subject : $subject.\n\n$message";
+
+               file_put_contents("logs.txt", $log, FILE_APPEND);
+               //mail sent
+               echo "mail successfully sent";
+            }
         }
         else
         {
-            echo "wrong email";
-        }
-
-        
-        
+            //do nothing
+        } 
     }
 
 ?>
@@ -72,7 +76,7 @@
              
          </span>
        </div>
-      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black" style="min-height:8vh; opacity: 0.8; z-index: 1;">
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black" style="min-height:8vh; opacity: 0.95; z-index: 1;">
          <div class="d-flex flex-grow-1">
             <span class="w-100 d-lg-none d-block">
                <!-- hidden spacer to center brand on mobile -->
@@ -119,7 +123,7 @@
                      </div>
                      <div class="col-sm-9">
                         <div class="msg-bubble align-self-bottom" data-aos="zoom-in">
-                           <p class="lead">I'm a CS Student with a minor in Management @ <span id="Ecole"><a href="https://www.mines-stetienne.fr/en/">Ecole des mines de Saint-Etienne</a></span> in France </p>
+                           <p class="lead">I'm a CS Student with a minor in Management @ <span class="text-accent"><a href="https://www.mines-stetienne.fr/en/">Ecole des mines de Saint-Etienne</a></span> in France </p>
                         </div>
                      </div>
                   </div>
@@ -146,7 +150,7 @@
                      </div>
                      <div class="col-sm-9" id="last-bubble">
                         <div class="msg-bubble" data-aos="zoom-in">
-                           <p class="lead">Scroll <a href="#mywork" style="font-weight: 500">down</a> to see my work!</p>
+                           <p class="lead">Scroll <a href="#mywork" class ="text-accent">down</a> to see my work!</p>
                         </div>
                      </div>
                   </div>
@@ -157,7 +161,7 @@
                         <h2 class="display-4">My skills</h2>
                      </div>
                      <div class="col-sm-6">
-                        <span><a href="Guillaume_Brizolier_Web.pdf"class="btn btn-dark text-white" target="_blank">View my CV</a></span>
+                        <span><a class="btn bg-black text-white mt-auto" href="Guillaume_Brizolier_Web.pdf" role="button" target="_blank">See my CV</a></span>
                      </div>
                   </div>
                   <div class="row vertical-align skill-row">
@@ -166,7 +170,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 80%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 80%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -176,7 +180,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -186,7 +190,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -196,7 +200,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;background-color:#1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -206,7 +210,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -216,7 +220,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -226,7 +230,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -270,23 +274,23 @@
             <hr class="my-4">
             <div class="card-deck text-dark text-center">
                <div class="card" data-aos="fade-right">
-                  <img class="card-img-top img-fluid" src="gbcpic.PNG" alt="Card image cap">
+                  <img class="card-img-top img-fluid" src="weather.png" alt="weather scraper screenshot">
                   <div class="card-body d-flex flex-column">
-                     <h5 class="card-title">GBC</h5>
-                     <p class="card-text">Mockup version of BBC's Technology page. My first ever HTML/CSS Project, plain, without any framework.</p>
-                     <a class="btn bg-black text-white mt-auto" href="gbc/gbc.html" role="button" target="_blank">Check it out</a>
+                     <h5 class="card-title">Weather Scraper</h5>
+                     <p class="card-text">PHP script that scrapes weather info</p>
+                     <a class="btn bg-black text-white mt-auto" href="weatherscraper" role="button" style="margin-top: 3rem" target="_blank">Check it out</a>
                   </div>
                </div>
                <div class="card" data-aos="fade-right">
-                  <img class="card-img-top img-fluid" src="reacttestpic.PNG" alt="Card image cap">
+                  <img class="card-img-top img-fluid" src="loginform.png" alt="react test screenshot">
                   <div class="card-body d-flex flex-column">
-                     <h5 class="card-title">Reaction Tester</h5>
-                     <p class="card-text">A pure Javascript game where you have to click on the circles as fast as you can.</p>
-                     <a class="btn bg-black text-white mt-auto" href="reactiontester/reactiontester.html" role="button" style="margin-top: 3rem" target="_blank">Check it out</a>
+                     <h5 class="card-title">Login Form</h5>
+                     <p class="card-text">A login form connected to a database. Go register! Uses PHP with MySQL</p>
+                     <a class="btn bg-black text-white mt-auto" href="sql" role="button" style="margin-top: 3rem" target="_blank">Check it out</a>
                   </div>
                </div>
                <div class="card" data-aos="fade-right">
-                  <img class="card-img-top img-fluid" src="codepic.PNG" alt="Card image cap">
+                  <img class="card-img-top img-fluid" src="codepic.PNG" alt="codeplayer screenshot">
                   <div class="card-body d-flex flex-column">
                      <h5 class="card-title">CodePlayer</h5>
                      <p class="card-text">Javascript/jQuery-based code editor.</p>
@@ -319,14 +323,9 @@
                   <i class="fab fa-linkedin-in"></i>
                   </a>
                </li>
-               <!--<li class = "col">
-                  <a href="mailto:gbrizolier@gmail.com" target="_blank">
-                  <i class="fa fa-envelope"></i>
-                  </a>
-               </li>-->
             </ul>
          </div>
-          <div class="container d-flex flex-column align-items-center bg-white" id="contactbox">
+          <div class="container d-flex flex-column align-items-center" id="contactbox">
               
               <div class="row">
                 <h2 class="display-6" style="padding: 5vh;">Email me</h2>
@@ -336,9 +335,7 @@
             
                 <div class="form-group row">
                     
-                    <div class="col-4"></div>
-                    
-                    <div class="col-4">
+                    <div class="col">
                         <input type="text" name="email" class="form-control" placeholder="Your email address goes here...">
                     </div>
                         
@@ -346,9 +343,7 @@
                 
                  <div class="form-group row">
                     
-                    <div class="col-4"></div>
-                    
-                    <div class="col-4">
+                    <div class="col">
                         <input type="text" name="subject" class="form-control" placeholder="Subject of your message...">
                     </div>
                         
@@ -359,8 +354,7 @@
                 </div>
                 <div class="form-group" style="float:right">
                 
-                    <button type="submit" id="send-button" class="bg-black">
-                        <i class="far fa-paper-plane"></i>
+                    <button type="submit" id="send-button" class="bg-primary-custom form-control">Send <i class="far fa-paper-plane"></i>
                     </button>
                     
                 </div>
@@ -403,11 +397,6 @@
                 mouseX = e.clientX
                 mouseY = e.clientY
             }
-
-            /*window.addEventListener('resize', function() {
-                canvas.width = window.innerWidth
-                canvas.height = window.innerHeight
-            })*/
 
             function Circle(xCoordinate, yCoordinate, radius) {
                 const randomNumber = Math.floor(Math.random() * 4)

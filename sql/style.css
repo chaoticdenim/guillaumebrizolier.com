@@ -1,0 +1,133 @@
+body {
+
+  background-color:#1e2838;
+  font-family: Lato, sans-serif;
+  color:white;
+  overflow: hidden;
+}
+
+h2 {
+    font-weight: bolder;
+    color:#1ABC9C;
+}
+
+.alert {
+    bottom:20vh;
+    border:none;
+    color:white;
+}
+
+.alert-success {
+    background-color: #2ECC71;
+}
+
+.alert-danger {
+    background-color: #E74C3C;
+}
+
+.alert-warning {
+    background-color: #F1C40F;
+}
+
+#muted {
+    font-weight: 300;
+    color:white;
+    opacity: 0.5;
+    font-size: 0.7em;
+}
+
+.title {
+    position:absolute;
+    top:15vh;
+}
+
+#login-btn {
+    background-color:#34495E;
+    border-radius:5px 5px 0 0 ;
+}
+
+#reg-btn {
+    border-radius:5px 5px 0 0;
+}
+
+.hidden {
+    display:none;
+}
+
+.menu {
+    background-color: #2C3E50;
+    border-radius: 5px 5px 0 0 ;
+}
+
+.form-container {
+    padding:0;
+    top:5vh;
+}
+
+.form {
+    border-radius:0 0 5px 5px;
+    padding:3vh;
+    background-color:#34495E;
+}
+
+.form-custom {
+    display:block;
+    padding:2% 5%;;
+    border:2px transparent solid;;
+    background-color:transparent;
+    width:100%;
+    color:white
+}
+
+.fake-border {
+    width:0%;
+    border-bottom:2px #1ABC9C solid;
+    margin-bottom:3vh;
+}
+
+@keyframes border-animation {
+    from{width:0%;}
+    to{width:100%;}
+}
+
+.form-custom:focus + .fake-border {
+    animation:border-animation 0.25s forwards ease-in-out;
+    outline:none;
+}
+
+::placeholder {
+    color:white;
+    opacity: 0.5;
+}
+
+.form-custom:focus {
+    outline:none;
+}
+
+.btn-custom {
+    background-color:#1ABC9C;
+    color:white;
+    border:none;
+    border-radius:5px;
+    margin:0;
+}
+
+.btn-dark-custom {
+    background-color:#2C3E50;
+    border:none;
+    color:white;
+    font-weight: 300;
+    height:5vh;
+}
+
+.btn-dark-custom:focus, .btn-dark-custom:hover {
+    outline:none;
+    cursor:pointer;
+    background-color:#34495E;
+}
+
+.btn-custom:hover, .btn-custom:active, .btn-custom:focus {
+
+    background-color: #00F0BF;
+    cursor:pointer;
+}
