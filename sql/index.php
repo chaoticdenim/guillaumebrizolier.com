@@ -9,14 +9,16 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900"
             rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
         <div class="container">
             <div class="row align-items-center justify-content-center h-100 w-100">
                 <h2 class="text-center title">Hey, you! Login to my non-existent
-                    web-service!<br><span id="muted">the login mechanism still works btw</span></h2>
-                <div class="col-6 form-container">
+                    web-service!<br><span id="muted">Your password will be encrypted using SHA256, but please put a fake one.</span></h2>
+                <div class="col-8 form-container">
                     <div class="row menu">
                         <button class="btn-dark-custom col" id="login-btn"
                             onclick="login()">Login</button>
@@ -24,7 +26,7 @@
                             onclick="register()">Register</button>
                     </div>
                     <form class="row form" method = "POST">
-                        <div class="col">
+                        <div class="col-12">
                             <input class="form-custom" type="email" name="email"
                                 placeholder="Enter your email">
                             <div class="fake-border"></div>
@@ -42,6 +44,7 @@
                     </form>
                 </div>
             </div>
+
             <?php
     
             $link = mysqli_connect("shareddb-f.hosting.stackcp.net", "users-database-3639484e", "coucou123", "users-database-3639484e");
@@ -58,6 +61,8 @@
                     $login = $_POST['login'];
                     $register = $_POST['register'];
 
+                    echo "POST var: password = $password\nemail = $mail\n";
+
                     if(isset($register)) //register
                     {
                         if(empty($password) || empty($name) || empty($mail))
@@ -69,11 +74,17 @@
                     </div>";
                         else
                         {
+                            //prevent from SQL Injection
+                            $password = mysqli_real_escape_string($link, $password);
+                            $mail = mysqli_real_escape_string($link, $mail);
+                            //hash passwords
+
+                            $password = hash('sha256', $password);
+
                             $query = "SELECT `name` FROM `users` WHERE email = '{$mail}' AND password = '{$password}'";
 
                             if($result = mysqli_query($link, $query))
                             {
-                                echo "test";
                                 $row = mysqli_fetch_array($result);
                                 if(!empty($row))
                                 {
@@ -117,6 +128,13 @@
                     else if(isset($login, $mail, $password))
                     {
                         //login
+                        //prevent SQL Injection
+                        $password = mysqli_real_escape_string($link, $password);
+                        $mail = mysqli_real_escape_string($link, $mail);
+
+                        //hash password
+                        $password = hash("sha256", $password);
+
                         $query = "SELECT `name` FROM `users` WHERE email = '{$mail}' AND password = '{$password}'";
                         
                         if($result = mysqli_query($link, $query))

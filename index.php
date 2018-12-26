@@ -272,31 +272,56 @@
             <h1 class="display-4">Latest Projects</h1>
             <p class="lead">I continuously learn web on my free time, through various mini-projects. Why don't you check these out?</p>
             <hr class="my-4">
-            <div class="card-deck text-dark text-center">
-               <div class="card" data-aos="fade-right">
-                  <img class="card-img-top img-fluid" src="weather.png" alt="weather scraper screenshot">
-                  <div class="card-body d-flex flex-column">
-                     <h5 class="card-title">Weather Scraper</h5>
-                     <p class="card-text">PHP script that scrapes weather info</p>
-                     <a class="btn bg-black text-white mt-auto" href="weatherscraper" role="button" style="margin-top: 3rem" target="_blank">Check it out</a>
-                  </div>
-               </div>
-               <div class="card" data-aos="fade-right">
-                  <img class="card-img-top img-fluid" src="loginform.png" alt="react test screenshot">
-                  <div class="card-body d-flex flex-column">
-                     <h5 class="card-title">Login Form</h5>
-                     <p class="card-text">A login form connected to a database. Go register! Uses PHP with MySQL</p>
-                     <a class="btn bg-black text-white mt-auto" href="sql" role="button" style="margin-top: 3rem" target="_blank">Check it out</a>
-                  </div>
-               </div>
-               <div class="card" data-aos="fade-right">
-                  <img class="card-img-top img-fluid" src="codepic.PNG" alt="codeplayer screenshot">
-                  <div class="card-body d-flex flex-column">
-                     <h5 class="card-title">CodePlayer</h5>
-                     <p class="card-text">Javascript/jQuery-based code editor.</p>
-                     <a class="btn bg-black text-white mt-auto" href="CodePlayer/codeplayer.html" role="button" style="margin-top: 3rem" target="_blank">Check it out</a>
-                  </div>
-               </div>
+            <div id="carouselExampleIndicators" class="carousel slide"
+            data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0"
+                    class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+                
+               <div class="carousel-item active">
+                    <a href="weatherscraper"><img src="loginform-cropped.png" class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block">
+                            <h5>Login Form</h5>
+                            <p>Secure Login page build with PHP and MySQL</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="weatherscraper"><img src="weather-cropped.png" class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                            <h5>Weather Scraper</h5>
+                            <p>PHP Scraper that gives you weather information.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-item">
+                    <a href="CodePlayer/codeplayer.html"><img src="codeplayer-cropped.png" class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                            <h5>Code Player</h5>
+                            <p>JS real-time code editor for HTML, CSS and Javascript</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="reactiontester/reactiontester.html"><img src="reaction-cropped.png" class="d-block w-100" alt="..."></a>
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                            <h5>Reaction Tester</h5>
+                            <p>JS fun game that challenges your mouse skills</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
             </div>
          </div>
       </div>
