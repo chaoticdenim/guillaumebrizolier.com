@@ -11,20 +11,16 @@
         
         if(filter_var($emailFrom, FILTER_VALIDATE_EMAIL))
         {
-            if(mail("gbrizolier@gmail.com", $subject, $message, $headers ))
-            {
-
-               $log = "Email sent by $emailFrom with subject : $subject.\n\n$message";
-
-               file_put_contents("logs.txt", $log, FILE_APPEND);
-               //mail sent
-               echo "mail successfully sent";
-            }
+            echo "good email";
+            mail("gbrizolier@gmail.com", $subject, $message, $headers );
         }
         else
         {
-            //do nothing
-        } 
+            echo "wrong email";
+        }
+
+        
+        
     }
 
 ?>
@@ -76,7 +72,7 @@
              
          </span>
        </div>
-      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black" style="min-height:8vh; opacity: 0.95; z-index: 1;">
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black" style="min-height:8vh; opacity: 0.8; z-index: 1;">
          <div class="d-flex flex-grow-1">
             <span class="w-100 d-lg-none d-block">
                <!-- hidden spacer to center brand on mobile -->
@@ -123,7 +119,7 @@
                      </div>
                      <div class="col-sm-9">
                         <div class="msg-bubble align-self-bottom" data-aos="zoom-in">
-                           <p class="lead">I'm a CS Student with a minor in Management @ <span class="text-accent"><a href="https://www.mines-stetienne.fr/en/">Ecole des mines de Saint-Etienne</a></span> in France </p>
+                           <p class="lead">I'm a CS Student with a minor in Management @ <span id="Ecole"><a href="https://www.mines-stetienne.fr/en/">Ecole des mines de Saint-Etienne</a></span> in France </p>
                         </div>
                      </div>
                   </div>
@@ -150,7 +146,7 @@
                      </div>
                      <div class="col-sm-9" id="last-bubble">
                         <div class="msg-bubble" data-aos="zoom-in">
-                           <p class="lead">Scroll <a href="#mywork" class ="text-accent">down</a> to see my work!</p>
+                           <p class="lead">Scroll <a href="#mywork" style="font-weight: 500">down</a> to see my work!</p>
                         </div>
                      </div>
                   </div>
@@ -161,7 +157,7 @@
                         <h2 class="display-4">My skills</h2>
                      </div>
                      <div class="col-sm-6">
-                        <span><a class="btn bg-black text-white mt-auto" href="Guillaume_Brizolier_Web.pdf" role="button" target="_blank">See my CV</a></span>
+                        <span><a href="Guillaume_Brizolier_Web.pdf"class="btn btn-dark text-white" target="_blank">View my CV</a></span>
                      </div>
                   </div>
                   <div class="row vertical-align skill-row">
@@ -170,7 +166,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 80%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 80%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -180,7 +176,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -190,7 +186,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -200,7 +196,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;background-color:#1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -210,7 +206,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -220,7 +216,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -230,7 +226,7 @@
                      </div>
                      <div class="col-sm-9 d-flex flex-column justify-content-center">
                         <div class="progress">
-                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;background-color: #1ABC9C" data-aos="fade-right" data-aos-duration="3000"></div>
+                           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;background-color: #B4F5DA" data-aos="fade-right" data-aos-duration="3000"></div>
                         </div>
                      </div>
                   </div>
@@ -282,32 +278,31 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
-                
-               <div class="carousel-item active">
-                    <a href="weatherscraper"><img src="loginform-cropped.png" class="d-block w-100" alt="..."></a>
+                <div class="carousel-item active">
+                    <img src="loginform-cropped.png" class="d-block w-100" alt="login
+                                    form">
                     <div class="carousel-caption d-none d-md-block">
-                            <h5>Login Form</h5>
-                            <p>Secure Login page build with PHP and MySQL</p>
+                        <h5>Login Form</h5>
+                        <p>Functional login page with secure password storage,
+                            PHP & MySQL</p>
                     </div>
                 </div>
-
                 <div class="carousel-item">
-                    <a href="weatherscraper"><img src="weather-cropped.png" class="d-block w-100" alt="..."></a>
+                    <img src="weather-cropped.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block text-dark">
                             <h5>Weather Scraper</h5>
                             <p>PHP Scraper that gives you weather information.</p>
                     </div>
                 </div>
-                
                 <div class="carousel-item">
-                    <a href="CodePlayer/codeplayer.html"><img src="codeplayer-cropped.png" class="d-block w-100" alt="..."></a>
+                    <img src="codeplayer-cropped.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block text-dark">
                             <h5>Code Player</h5>
                             <p>JS real-time code editor for HTML, CSS and Javascript</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <a href="reactiontester/reactiontester.html"><img src="reaction-cropped.png" class="d-block w-100" alt="..."></a>
+                    <img src="reaction-cropped.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block text-dark">
                             <h5>Reaction Tester</h5>
                             <p>JS fun game that challenges your mouse skills</p>
@@ -348,6 +343,11 @@
                   <i class="fab fa-linkedin-in"></i>
                   </a>
                </li>
+               <!--<li class = "col">
+                  <a href="mailto:gbrizolier@gmail.com" target="_blank">
+                  <i class="fa fa-envelope"></i>
+                  </a>
+               </li>-->
             </ul>
          </div>
           <div class="container d-flex flex-column align-items-center" id="contactbox">
@@ -360,7 +360,9 @@
             
                 <div class="form-group row">
                     
-                    <div class="col">
+                    <div class="col-4"></div>
+                    
+                    <div class="col-4">
                         <input type="text" name="email" class="form-control" placeholder="Your email address goes here...">
                     </div>
                         
@@ -368,7 +370,9 @@
                 
                  <div class="form-group row">
                     
-                    <div class="col">
+                    <div class="col-4"></div>
+                    
+                    <div class="col-4">
                         <input type="text" name="subject" class="form-control" placeholder="Subject of your message...">
                     </div>
                         
@@ -379,7 +383,8 @@
                 </div>
                 <div class="form-group" style="float:right">
                 
-                    <button type="submit" id="send-button" class="bg-primary-custom form-control">Send <i class="far fa-paper-plane"></i>
+                    <button type="submit" id="send-button" class="bg-black">
+                        <i class="far fa-paper-plane"></i>
                     </button>
                     
                 </div>
@@ -422,6 +427,11 @@
                 mouseX = e.clientX
                 mouseY = e.clientY
             }
+
+            /*window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth
+                canvas.height = window.innerHeight
+            })*/
 
             function Circle(xCoordinate, yCoordinate, radius) {
                 const randomNumber = Math.floor(Math.random() * 4)
